@@ -17,7 +17,7 @@ In order to enable logging, use `setLogFunction(logFn)`:
 
 ```javascript
   import getObjectProperty from 'get-object-property';
-  import { setLogFunction } from 'get-object-property;
+  import { setLogFunction } from 'get-object-property';
 
   setLogFunction((err) => { console.log(err); });
 
