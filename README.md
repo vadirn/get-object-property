@@ -1,7 +1,14 @@
 # get-object-property
 Safely get javascript object property with fallback value and error reporting
 
-## Usage
+## API
+`get-object-property` exposes only one function:
+```
+  getObjectProperty(executor, fallbackValue, logFunction);
+```
+
+## Examples
+
 ```javascript
   import getObjectProperty from 'get-object-property';
 
@@ -13,16 +20,15 @@ Safely get javascript object property with fallback value and error reporting
   console.log(result);
 ```
 
-In order to enable logging, use `setLogFunction(logFn)`:
+In order to log failures in executor pass log function as a third argument:
 
 ```javascript
   import getObjectProperty from 'get-object-property';
-  import { setLogFunction } from 'get-object-property';
 
-  setLogFunction((err) => { console.log(err); });
+  logFn = (err) => { console.log(err); };
 
   const foo = {};
 
-  const result = getObjectProperty(() => foo.bar.foo, 'default');
+  const result = getObjectProperty(() => foo.bar.foo, 'default', logFn);
   // expect to see error in console
 ```
