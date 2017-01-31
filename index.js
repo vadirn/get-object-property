@@ -1,17 +1,11 @@
-let log = null;
-
-export const setLogFunction = (logFn) => {
-  log = logFn;
-};
-
-export default (executor, defaultValue, reportError = true) => {
+export default (executor, defaultValue, logFn) => {
   try {
     const result = executor();
     if (result === undefined) return defaultValue;
     return result;
   } catch (err) {
-    if (reportError && typeof log === 'function') {
-      log(err);
+    if (typeof logFn === 'function') {
+      logFn(err);
     }
     return defaultValue;
   }
