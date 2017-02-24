@@ -1,6 +1,6 @@
 {
   "name": "get-object-property",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Safely get javascript object property with fallback value and error reporting",
   "main": "index.js",
   "repository": "git@github.com:vadirn/get-object-property.git",
